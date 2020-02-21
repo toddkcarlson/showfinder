@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Showfinder</title>
+    <title>ShowFinder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="container">
+        <img class="logo" src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg"/>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+
+        <%= yield %>
+      
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="col-md-2">
+          <h3>ShowFinder</h3>
+          <ul>
+            <li>By Todd Carlson</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
