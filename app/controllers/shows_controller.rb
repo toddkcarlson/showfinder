@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   def index
-  	@shows = Show.all(query)
+  	@shows = Show.all
   end
 
   def show

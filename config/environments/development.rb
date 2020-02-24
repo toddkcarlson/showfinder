@@ -1,6 +1,4 @@
 Rails.application.configure do
-
-  config.debug_exception_response_format = :default
   
   # Settings specified here will take precedence over those in config/application.rb.
 
