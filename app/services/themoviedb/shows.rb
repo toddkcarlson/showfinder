@@ -13,14 +13,5 @@ module theMovieDB
       Show.new(response)
     end
 
-    # def initialize(args = {})
-    #   super(args)
-    #   self.ingredients = parse_ingredients(args)
-    # end
-
-    # def parse_ingredients(args = {})
-    #   args.fetch("extendedIngredients", []).map { |ingredient| Ingredient.new(ingredient) }
-    # end
-
   end
 end
