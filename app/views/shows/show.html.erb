@@ -1,14 +1,9 @@
-    <!--
-    TODO: Loop through each show and display details with this HTML
-    -->
-
 <div class="show row">
-  <div class="cover col-md-4">  <img src="<%= @show.image %>"> </div>
+  <div class="cover col-md-4">  <img src="http://image.tmdb.org/t/p/w500/<%=@show['poster_path']%>" style="width:182px;height:268px;"> </div>
 
   <div class="col-sm-8">
-    <h3 class="title"> <%= @show.title %> </h3>
-    <p class="starring"> <%= @show.starring %> </p>
-
+    <h3 class="title"> <%= @show["original_name"] %> </h3>
+    <p class="starring"> User Rating: <%= @show["vote_average"] %> </p>
     
   </div>
 </div>

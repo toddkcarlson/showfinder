@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>ShowFinder</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,7 +11,11 @@
   <body>
     <div class="header">
       <div class="container">
-        <img class="logo" src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg"/>
+        <img class="logo" src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" style="float:left;"/>
+        <form><input type="text" name="search"><input type="submit"></form>
+        <div class="md-form mt-0">
+          <form><input class="form-control" type="text" placeholder="Search" aria-label="Search"></form>
+        </div>
       </div>
     </div>
 

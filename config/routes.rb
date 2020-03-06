@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :shows
+  get '/', to: 'shows#index'
+  get '/shows', to: 'shows#show', as: 'show_page'
 
   root 'shows#index'
 end
