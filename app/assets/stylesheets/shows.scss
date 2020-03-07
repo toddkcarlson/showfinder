@@ -19,6 +19,8 @@ body {
 .logo {
   width: 60px;
   margin: 15px 0;
+  margin-right:5px;
+  float:left;
 }
 
 
@@ -38,8 +40,15 @@ html, body {
   vertical-align: bottom;
 }
 
+.poster {
+  width:182px;
+  height:268px;
+}
 
-
+.poster_default {
+  width:182px;
+  margin-top: 111px;
+}
 
 /* Thumbnail */
 .thumbnail {
@@ -51,9 +60,13 @@ html, body {
 }
 
 .title,
-.starring {
+.rating {
   color: #fff;
   text-align: center;
+}
+
+.details {
+  color: #fff;
 }
 
 .title,
@@ -63,8 +76,8 @@ html, body {
   font-weight: 500;
 }
 
-.starring,
-.show-starring {
+.rating,
+.show-rating {
   color: #c3c3c3;
   font-size: 12px;
   font-weight: 200;
@@ -77,7 +90,7 @@ html, body {
 
 
 .show-title,
-.show-starring,
+.show-rating,
 .feature .name,
 .feature .desc {
   color: #fff;
@@ -87,7 +100,7 @@ html, body {
   font-size: 30px;
 }
 
-.show-starring {
+.show-rating {
   margin-bottom: 25px;
 }
 

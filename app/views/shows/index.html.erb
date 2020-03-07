@@ -10,10 +10,16 @@
   <div class="col-md-3">
     <%= link_to show_page_path(:data => show['json_data']) do %>    
       <div class="thumbnail">
-        <img src="http://image.tmdb.org/t/p/w500/<%=show['poster_path']%>" style="width:182px;height:268px;" >
+        
+        <% if show['poster_path'].present? %>
+          <img class="poster" src="http://image.tmdb.org/t/p/w500/<%=show['poster_path']%>">
+        <% else %>
+          <img class="poster_default" src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg">
+        <% end %>
+
         <div class="caption">
           <h3 class="title"> <%= show["original_name"] %> </h3>
-          <p class="starring"> User Rating: <%= show["vote_average"] %> </p>
+          <p class="rating"> User Rating: <%= show["vote_average"] %> </p>
         </div>
       </div>
     <% end %>      
@@ -21,3 +27,4 @@
 <% end %>
   
 </div>
+
