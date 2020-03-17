@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ShowsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+	WebMock.stub_request(:get, "http://api.themoviedb.org").
+  		with(body:{"results"=>[]})
+
+  	get "/"
+  	assert_response :success 
 end

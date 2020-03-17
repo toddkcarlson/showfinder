@@ -40,6 +40,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'webmock'
+  gem 'test-unit'
 end
 
 group :development do
