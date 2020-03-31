@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>ShowFinder</title>
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -12,7 +13,7 @@
     <div class="header">
       <div class="container">
         <a href="/"><img class="logo" src="https://www.themoviedb.org/assets/1/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" style="float:left;margin-right:5px"/></a>
-        <form class="form-inline align-self-center ml-auto" style="margin-top:25px;"><input class="form-control" type="text" placeholder="type here" name="search"><button class="btn btn-outline-white btn-md my-0 ml-sm-2 type="submit" label="Submit">Search</button></form>
+        <form action="/" class="form-inline align-self-center ml-auto" style="margin-top:25px;"><input class="form-control" type="text" placeholder="type here" name="search"><button class="btn btn-outline-white btn-md my-0 ml-sm-2 type="submit" label="Submit">Search</button></form>
       </div>
     </div>
 
