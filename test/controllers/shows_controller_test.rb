@@ -14,8 +14,7 @@ end
 
 class ShowsControllerTest < ActionDispatch::IntegrationTest
 
-    def test_main_page
-        got = {
+       got = {
             "original_name" => "Game of Thrones",
             "vote_average" => 10,
             "poster_path" => "path/to/some_image.jpg"
@@ -27,6 +26,8 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
         }
 
         results = [got, ad]
+
+    def test_main_page
 
         mock_tv_api({
             path: '/trending/tv/week',
@@ -43,6 +44,9 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
           assert_match '/shows?data=' + CGI::escape(r.to_json), response.body
       end
 
+      # Rating of the show appear:
+      assert_match "User Rating: " + got["vote_average"], response.body
+
       # Poster url should appear:
       assert_match got["poster_path"], response.body
 
@@ -51,24 +55,14 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
     end
 
     def test_search
-        got = {
-            "original_name" => "Game of Thrones",
-            "vote_average" => 10,
-            "poster_path" => "path/to/some_image.jpg"
-        }
-
-        ad = {
-            "original_name" => "Arrested Development",
-            "vote_average" => 10
-        }
-
-        results = [got, ad]
+    	search = "Thrones"
 
         mock_tv_api({
-            path: '/?search=',
+            path: '/search/tv',
+            qstring: "&query=" + search,
             body: {"results" => results}})
 
-      get "/"
+      get "/?search=" + search
       assert_response :success
 
       results.each do |r|
@@ -78,6 +72,9 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
           # Links should contain correct data:
           assert_match '/shows?data=' + CGI::escape(r.to_json), response.body
       end
+
+      # Rating of the show appear:
+      assert_match "User Rating: " + got["vote_average"], response.body
 
       # Poster url should appear:
       assert_match got["poster_path"], response.body
@@ -87,38 +84,21 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
     end
 
     def test_show_page
-        got = {
-            "original_name" => "Game of Thrones",
-            "vote_average" => 10,
-            "poster_path" => "path/to/some_image.jpg"
-        }
 
-        ad = {
-            "original_name" => "Arrested Development",
-            "vote_average" => 10
-        }
-
-        results = [got, ad]
-
-        mock_tv_api({
-            path: '/shows?data=',
-            body: {"results" => results}})
-
-      get "/"
+      get "/shows?data=" + CGI::escape(got.to_json)
       assert_response :success
 
-      results.each do |r|
-          # Names of the shows should appear:
-          assert_match r["original_name"], response.body
+      # Name should appear:
+      assert_match got["original_name"], response.body
 
-          # Links should contain correct data:
-          assert_match '/shows?data=' + CGI::escape(r.to_json), response.body
-      end
+      # Rating of the show appear:
+      assert_match "User Rating: " + got["vote_average"], response.body
 
       # Poster url should appear:
       assert_match got["poster_path"], response.body
 
-      # Default image should appear for show without poster_path:
-      assert_match 'class="poster_default"', response.body
+      # Description should appear:
+      assert_match got["overview"], response.body
+
     end    
 end
