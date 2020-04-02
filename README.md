@@ -1,24 +1,27 @@
-# README
+# TVShowFinder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple TV app written in Ruby on Rails using the TMDb API.
 
-Things you may want to cover:
+<h3>Screenshots</h3>
+<iframe src="https://drive.google.com/file/d/1nKZ8mTsNjI4GVcYt4kwif0vQ2uPzeM4Z/preview" width="640" height="480"></iframe>
+<iframe src="https://drive.google.com/file/d/1NUNgzebN8ad6kLbSGA6vWfMF0Cwv6WBh/preview" width="640" height="480"></iframe>
 
-* Ruby version
 
-* System dependencies
+<h3>Setup</h3>
+Get an API key from TheMovieDatabase here
+Run <code>bundle install</code>
+Run <code>rails webpacker:install</code>
 
-* Configuration
+<h3>Run</h3>
 
-* Database creation
+Run <code>rails server</code>
+Open <code>http://localhost:3000</code>
 
-* Database initialization
+rails server
 
-* How to run the test suite
+https://tvshowfinder.herokuapp.com/
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+<h3>Tech</h3>
+Ruby on Rails - The Ruby web framework
+Bootstrap
