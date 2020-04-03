@@ -12,10 +12,23 @@ class ShowsController < ApplicationController
   	end
 
 	uri = URI.parse(url)
-	response = Net::HTTP.get_response(uri)
-	
-	@shows = JSON.parse(response.body)["results"]
-	@shows = @shows.map! { |x| x.merge({'json_data' => x.to_json}) }
+
+	begin
+      response = Net::HTTP.get_response(uri)
+
+      if !response.is_a?(Net::HTTPSuccess)
+        raise Exception.new("Error contacting TV API")
+      end
+
+      @shows = JSON.parse(response.body)["results"]
+      @shows = @shows.map! { |x| x.merge({'json_data' => x.to_json}) }
+      @error = nil
+
+    rescue Exception => ex
+      @shows = []
+      @error = ex.message
+    end
+
   end
 
   def show

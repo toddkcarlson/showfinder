@@ -25,18 +25,29 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
         @@ad = {
             "original_name" => "Arrested Development",
             "vote_average" => 10,
-            "poster_path" => "path/to/some_image.jpg",
             "backdrop_path" => "path/to/some_image.jpg",            
             "overview" => "A TV series."               
         }
 
         @@results = [@@got, @@ad]
 
+    def test_main_page_error
+
+        mock_tv_api({
+            path: '/trending/tv/week',
+            status: 500
+            })
+
+      get "/"
+      assert_response :success
+      assert_match "Error contacting TV API", response.body
+    end
+
     def test_main_page
 
         mock_tv_api({
             path: '/trending/tv/week',
-            body: {"@@results" => @@results}})
+            body: {"results" => @@results}})
 
       get "/"
       assert_response :success
@@ -65,7 +76,7 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
         mock_tv_api({
             path: '/search/tv',
             qstring: "&query=" + search,
-            body: {"@@results" => @@results}})
+            body: {"results" => @@results}})
 
       get "/?search=" + search
       assert_response :success
