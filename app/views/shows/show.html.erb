@@ -3,9 +3,7 @@
   <div class="col-sm-8">
     <h3 class="title"> <%= @show["original_name"] %> </h3>
     <p class="rating"> User Rating: <%= @show["vote_average"] %> </p>
-    <p class="details"> <%= @show["overview"] %>
-    	<!-- <a href="@show['homepage']">Visit Site</a> -->
-    </p>    
+    <p class="details"> <%= @show["overview"] %></p>    
   </div>
 
   <div class="cover col-md-4">  <img src="http://image.tmdb.org/t/p/w500/<%=@show['backdrop_path']%>"> </div>
